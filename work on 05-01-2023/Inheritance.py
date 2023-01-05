@@ -1,4 +1,4 @@
-# Implements all types of inheritance
+
 
 class Company:
     def __init__(self, c_name, loc, c_type):
