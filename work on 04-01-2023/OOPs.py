@@ -15,7 +15,7 @@ print()
 
 # class with constructor and representation of the object
 class Employee:
-    """Employee class that take 2 Arguments name and age"""
+    '''Employee class that take 2 Arguments name and age'''
 
     def __init__(self, name: str, age: int) -> None:
         self.name = name
@@ -37,7 +37,7 @@ print()
 
 
 class Company:
-    """Company class that store detail about companies"""
+    '''Company class that store detail about companies'''
 
     __type = 'IT'  # private class variable
 
@@ -62,11 +62,11 @@ class Company:
 c1 = Company('Aloha Technology', 'Pune')
 c2 = Company('Airtal', 'Mumbai')
 print(c1.companyDetail())
-print('Aloha', c1.showType())
+print(f'Aloha {c1.showType()}')
 # print(c1.type)    # getting error
 print(c2.companyDetail())
-print('Before changes airtal', c2.showType())
+print(f'Before changes Airtal {c2.showType()}')
 # print(c2.type)    # getting error
 c1.changeType('Communication')
-print('After changes airtal', c2.showType())
+print(f'After changes Airtal {c2.showType()}')
 print()
