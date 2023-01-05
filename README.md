@@ -9,3 +9,4 @@ How to work with different data types in the python.
 - And scopes.
 - Implement OOPS
 - concepts such as Encapsulation,Polymorphism, Inheritance,
+- CRUD operations
