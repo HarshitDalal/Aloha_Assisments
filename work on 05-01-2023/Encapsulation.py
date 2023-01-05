@@ -1,4 +1,4 @@
-# Encapsulation in python
+﻿# Encapsulation in python
 # private variable and getter setter method
 from random import randrange
 

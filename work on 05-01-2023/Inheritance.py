@@ -1,30 +1,53 @@
+class A:
+    def show(self):
+        return f'Class A method'
 
 
-class Company:
-    def __init__(self, c_name, loc, c_type):
-        self.c_name, self.loc, self.c_type = c_name, loc, c_type
-
-    def show_company_details(self):
-        return f'Company name : {self.c_name} , location : {self.loc}, type : {self.c_type}'
+class B(A):
+    def showing(self):
+        return f'class B Method'
 
 
-class Employee(Company):
-    def __init__(self, e_name, age, c_name, loc, c_type):
-        super().__init__(c_name, loc, c_type)
-        self.e_name = e_name
-        self.age = age
-        self.edu = []
+class C(A):
+    def detail(self):
+        return f'Class C Method'
 
-    def add_edu(self, *edu):
-        self.edu += edu
 
-    def show_emp_details(self):
-        return f'Employee name : {self.e_name}, age : {self.age}, education : {self.edu}, {self.show_company_details()}'
+class Add:
+    def add_n(self, a, b):
+        return a + b
+
+
+class Mul:
+    def mul_n(self, a, b):
+        return a * b
+
+
+class Div:
+    def div(self, a, b):
+        try:
+            return a / b
+        except ZeroDivisionError as e:
+            return e
+
+
+class Calculation(Add, Mul, Div):
+    def avg(self, *args):
+        return sum(args) / len(args)
+
 
 if __name__ == '__main__':
+    a = B()
+    b = C()
+    print(f'class B object call class A method {a.show()}')
+    print(f'class B object call self method {a.showing()}')
+    print(f'class C object call class A method {b.show()}')
+    print(f'class C object call self method {b.detail()}')
 
-    e1 = Employee('Harshit Dalal', 23, 'Aloha Technology', 'Pune', 'IT')
-    e1.add_edu('10th', '12th', 'BCA', 'MCA')
-    print(e1.show_company_details())
-    print(e1.show_emp_details())
-    print(f'Employee education : {e1.edu}')
+    cal = Calculation()
+    print(cal.avg(1,2,3,4))
+
+    print(cal.div(12,2))
+    print(cal.mul_n(2,5))
+    print(cal.add_n(2,6))
+
