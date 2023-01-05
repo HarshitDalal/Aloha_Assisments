@@ -1,5 +1,17 @@
 import json
 
+'''
+Python object =	JSON object
+dict =	object
+list, tuple	 = array
+str	= string
+int, long, float = numbers
+True = true
+False = false
+None = null
+'''
+
+
 if __name__ == '__main__':
     data = {
         'name': 'Harshit',
