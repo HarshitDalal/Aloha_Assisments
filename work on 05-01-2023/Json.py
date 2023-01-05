@@ -29,10 +29,12 @@ if __name__ == '__main__':
         'disability': None
     }
 
+    # this is known as Serialization
     json_data = json.dumps(data, indent=4)
     print(json_data)
     print(type(json_data))
 
+    # this is known as Deserialization
     json_to_normal = json.loads(json_data)
     print(json_to_normal)
     print(type(json_to_normal))
