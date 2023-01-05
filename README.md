@@ -8,3 +8,4 @@ How to work with different data types in the python.
 - Unpacking of Collection.
 - And scopes.
 - Implement OOPS
+- concepts such as Encapsulation,Polymorphism, Inheritance,
