@@ -45,9 +45,8 @@ if __name__ == '__main__':
     print(f'class C object call self method {b.detail()}')
 
     cal = Calculation()
-    print(cal.avg(1,2,3,4))
+    print(cal.avg(1, 2, 3, 4))
 
-    print(cal.div(12,2))
-    print(cal.mul_n(2,5))
-    print(cal.add_n(2,6))
-
+    print(cal.div(12, 2))
+    print(cal.mul_n(2, 5))
+    print(cal.add_n(2, 6))
