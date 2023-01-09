@@ -14,15 +14,12 @@ class OperationOnJson:
         data = json.loads(emp_data)
         for emp in data['Employees']:
             if emp['employeeCode'] == employeeCode:
-                return f'{emp["preferredFullName"]} job title is {emp["jobTitleName"]}'
+                return emp
         return 'No Employee found'
 
     def update_data(self, employeeCode: str):
-        emp_data = self.file.read()
-        data = json.loads(emp_data)
-        for emp in data['Employees']:
-            if emp['employeeCode'] == employeeCode:
-                pass
+        emp = self.get_detail_by_id(employeeCode)
+        print(emp)
 
     def __del__(self):
         self.file.close()
@@ -31,4 +28,5 @@ class OperationOnJson:
 if __name__ == '__main__':
     ob = OperationOnJson()
     employeeCode = input("Enter Employee Code : ")
-    print(ob.get_detail_by_id(employeeCode))
+    # print(ob.get_detail_by_id(employeeCode))
+    ob.update_data(employeeCode)
