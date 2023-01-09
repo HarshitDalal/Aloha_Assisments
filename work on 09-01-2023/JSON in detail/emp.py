@@ -30,4 +30,5 @@ class OperationOnJson:
 
 if __name__ == '__main__':
     ob = OperationOnJson()
-    ob.get_detail_by_id("E1")
+    employeeCode = input("Enter Employee Code : ")
+    print(ob.get_detail_by_id(employeeCode))
