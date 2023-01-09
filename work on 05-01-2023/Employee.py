@@ -1,5 +1,3 @@
-
-
 class Company:
     def __init__(self, c_name, loc, c_type):
         self.c_name, self.loc, self.c_type = c_name, loc, c_type
@@ -21,8 +19,8 @@ class Employee(Company):
     def show_emp_details(self):
         return f'Employee name : {self.e_name}, age : {self.age}, education : {self.edu}, {self.show_company_details()}'
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     e1 = Employee('Harshit Dalal', 23, 'Aloha Technology', 'Pune', 'IT')
     e1.add_edu('10th', '12th', 'BCA', 'MCA')
     print(e1.show_company_details())

@@ -22,6 +22,11 @@ class Problems:
 if __name__ == '__main__':
     p1 = Problems()
 
-    print(p1.two_sum([1, 5, 7, 3, 8, 2], 9))
+    print(p1.two_sum([1, 5, 7, 3, 8, 2], 7))
     print(p1.intersection_of_array([1, 4, 2, 6, 3, 7, 3], [4, 2, 6, 8, 9, 0, 5]))
     print(p1.remove_repating_ele([1, 2, 4, 2, 5, 3, 6, 2, 7, 1, 4]))
+
+    arr = [1,2, 4,6,7]
+
+    a = [i for i in arr if i > 4 ]
+    print(a)

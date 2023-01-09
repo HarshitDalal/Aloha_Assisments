@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block contain %}
+<div class="container my-3">
+    <form action="{{ url_for('chat') }}" method="get">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="test" class="form-control" id="username" name="username">
+        </div>
+        <div class="mb-3">
+            <label for="room" class="form-label">Room Id</label>
+            <input type="number" class="form-control" id="room" name="room">
+        </div>
+        <input type="submit" value="Connect" class="btn btn-primary">
+        <input type="reset" value="Reset" class="btn btn-primary">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %} Chat {% endblock %}
+
+{% block contain %}
+<div class="container my-5">
+    <h1> Welcome to the Room-{{ room }}</h1>
+    <div class="container my-5 mx-5" id="messages">
+
+    </div>
+    <form action="" method="get" id="message_input_form" class="container">
+        <div class="mb-3">
+            <label for="message_input" class="form-label">Type Message</label>
+            <input type="text" name="message" id="message_input" class="form-control">
+        </div>
+        <input type="submit" value="Send" class="btn btn-primary">
+    </form>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+    integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+    crossorigin="anonymous"></script>
+
+<script type="text/javascript" charset="utf-8">
+    const socket = io.connect("http://127.0.0.1:5000/");
+    socket.on('connect', () => {
+        socket.emit('join_room', {
+            username: "{{ username }}",
+            room: "{{ room }}"
+        });
+    });
+    let message_input = document.getElementById('message_input');
+
+    document.getElementById('message_input_form').onsubmit = (e) => {
+        e.preventDefault();
+        let message = message_input.value.trim();
+        if (message.length) {
+            socket.emit('send_message', {
+                username: "{{ username }}",
+                room: "{{ room }}",
+                message: message
+            })
+        }
+        message_input.value = '';
+        message_input.focus();
+    };
+
+    socket.on('join_room_announcement', (data) => {
+        if (data.username !== "{{ username }}") {
+            const newNode = document.createElement('p');
+            newNode.innerHTML = `<b>${data.username}</b> has joined the room`;
+            document.getElementById('messages').appendChild(newNode);
+        }
+    });
+
+    socket.on('receive_message', (data) => {
+        const newNode = document.createElement('div');
+        newNode.innerHTML = `<b>${data.username}:&nbsp;</b> ${data.message}`;
+        document.getElementById('messages').appendChild(newNode);
+    });
+</script>
+
+{% endblock %}

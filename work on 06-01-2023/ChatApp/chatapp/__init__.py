@@ -8,3 +8,5 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:harshit@localhost
 db = SQLAlchemy(app)
 
 from . import routes
+from . import models
+
