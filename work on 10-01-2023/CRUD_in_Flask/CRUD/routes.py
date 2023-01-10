@@ -5,11 +5,6 @@ from .dbConfig.operations import ERPTable
 from datetime import datetime
 
 
-@app.route('/')
-def home():
-    return render_template('home.html')
-
-
 @app.route('/erp', methods=['GET', 'POST'])
 def erp():
     emp = ERPTable()
