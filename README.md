@@ -23,5 +23,5 @@
 - ERP web application using flask and postgresql
 
  # In Progress
-
+- file receive from front-end and store in back-end & database
 
