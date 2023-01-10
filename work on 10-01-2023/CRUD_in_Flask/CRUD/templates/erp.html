@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block title %} ERP {% endblock title %}
+
+{% block contant %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <form action="" method="post" class="my-5 mx-5">
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    {{ form.fullname.label(class="form-label") }}
+                    {{ form.fullname(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.email.label(class="form-label") }}
+                    {{ form.email(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.phone.label(class="form-label") }}
+                    {{ form.phone(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.pos.label(class="form-label") }}
+                    {{ form.pos(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.dob.label(class="form-label") }}
+                    {{ form.dob(class="form-control", format="yyyy-mm-dd") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.company.label(class="form-label") }}
+                    {{ form.company(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.address.label(class="form-label") }}
+                    {{ form.address(class="form-control") }}
+                </div>
+                <div class="mb-3 text-center">
+                    {{ form.save(class="btn btn-primary px-5 mx-3") }}
+                    <button type="reset" class="btn btn-primary px-5 mx-3">Reset</button>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Fullname</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                        <tr>
+                            <th scope="row">{{ i[0] }}</th>
+                            <td>{{ i[1] }}</td>
+                            <td>{{ i[2] }}</td>
+                            <td>{{ i[7] }}</td>
+                            <td><a href="{{ url_for('emp_detail', eid=i[0]) }}">More Detail</a></td>
+                        </tr> 
+                    
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock contant %}

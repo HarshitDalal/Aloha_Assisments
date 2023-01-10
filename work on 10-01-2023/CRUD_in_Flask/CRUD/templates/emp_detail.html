@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block title %} Employee {% endblock title %}
+
+{% block contant %}
+    <div class="container my-5">
+        <div class="row my-5 mx-5">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title"><b>EID - </b> {{ data[0] }}</h5>
+                      <h1 class="card-title">{{ data[1] }}</h1>
+                      
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><b>Email -</b> {{ data[2] }}</li>
+                      <li class="list-group-item"><b>Phone -</b> {{ data[3] }}</li>
+                      <li class="list-group-item"><b>Position -</b> {{ data[4] }}</li>
+                      <li class="list-group-item"><b>DOB -</b> {{ data[6] }}</li>
+                      <li class="list-group-item"><b>Company -</b> {{ data[7] }}</li>
+                    </ul>
+                    <div class="card-body">
+                      <p class="card-text"><b>Address -</b> {{ data[5] }}</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col">
+                <form action="" method="post">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.fullname.label(class="form-label") }}
+                        {{ form.fullname(class="form-control", value=data[1]) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.email.label(class="form-label") }}
+                        {{ form.email(class="form-control", value=data[2]) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.phone.label(class="form-label") }}
+                        {{ form.phone(class="form-control", value=data[3]) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.pos.label(class="form-label") }}
+                        {{ form.pos(class="form-control", value=data[4]) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.dob.label(class="form-label") }}
+                        {{ form.dob(class="form-control", value=data[6]) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.company.label(class="form-label") }}
+                        {{ form.company(class="form-control", value=data[7]) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.address.label(class="form-label") }}
+                        {{ form.address(class="form-control", value=data[5]) }}
+                    </div>
+                    <div class="mb-3 text-center">
+                        {{ form.save(class="btn btn-primary px-5 mx-3") }}
+                        <button type="reset" class="btn btn-primary px-5 mx-3">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock contant %}
