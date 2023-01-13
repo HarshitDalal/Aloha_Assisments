@@ -34,6 +34,19 @@ class Connection(Config):
         except Exception as error:
             self.__notify(error)
 
+    @staticmethod
+    def __notify(error):
+        """
+        give error message while exception are happened
+
+        ARGS:
+            error (str) : Error that are happened while connecting database
+
+        RETURN:
+            str : Error message
+
+        """
+        return error
 
 
 
