@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class Vehicle(ABC):
 
     @abstractmethod
-    def engine(self, name: str, cc: int, e_type: str) -> None:
+    def engine(self, e_name: str, cc: int, e_type: str) -> None:
         pass
 
     @abstractmethod
@@ -17,14 +17,14 @@ class Vehicle(ABC):
 
 class Bike(Vehicle):
 
-    def __init__(self, name: str) -> None:
-        self.__name = name
+    def __init__(self, m_name: str) -> None:
+        self.__name = m_name
         self.__wheel_no = 0
         self.__break_type = ''
         self.__engine_detail = []
 
-    def engine(self, name: str, cc: int, e_type: str) -> None:
-        self.__engine_detail.append([name, cc, e_type])
+    def engine(self, e_name: str, cc: int, e_type: str) -> None:
+        self.__engine_detail.append([e_name, cc, e_type])
 
     def breaks(self, b_type: str) -> None:
         self.__break_type = b_type
@@ -61,7 +61,17 @@ class Bajaj(Bike):
         pass
 
 
-def create_bike(name: str, obj: object, wheel: int, b_type: str, e_name: str, cc: int, e_type: str) -> None:
+# def create_bike(name: str, obj: object, wheel: int, b_type: str, e_name: str, cc: int, e_type: str) -> None:
+#     obj.wheels(wheel)
+#     obj.breaks(b_type)
+#     obj.engine(e_name, cc, e_type)
+#     obj.add_model(name, obj)
+#     print(obj.show_all())
+
+
+if __name__ == '__main__':
+    name, wheel, b_type, e_name, cc, e_type = input().split()
+    obj = Bajaj(name)
     obj.wheels(wheel)
     obj.breaks(b_type)
     obj.engine(e_name, cc, e_type)
@@ -69,7 +79,4 @@ def create_bike(name: str, obj: object, wheel: int, b_type: str, e_name: str, cc
     print(obj.show_all())
 
 
-if __name__ == '__main__':
-    name, wheel, b_type, e_name, cc, e_type = input().split()
-    obj = Bajaj(name)
-    create_bike(name, obj, int(wheel), b_type, e_name, int(cc), e_type)
+    # create_bike(name, obj, int(wheel), b_type, e_name, int(cc), e_type)

@@ -103,3 +103,6 @@ class Employee(_Connection):
         sql = 'SELECT * FROM employee'
         self._cur.execute(sql)
         return self._cur.fetchmany(size)
+
+if __name__ == '__main__':
+    print(help(Employee))
