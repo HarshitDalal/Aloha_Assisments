@@ -29,6 +29,7 @@ class Employee(_Connection):
         sql = 'INSERT INTO employee (name, email, phone, company) VALUES (%s, %s, %s, %s)'
         values = (name, email, phone, company)
         self._cur.execute(sql, values)
+        self._save()
 
     def modify(self, eid, name, email, phone, company):
         """
@@ -45,6 +46,7 @@ class Employee(_Connection):
             sql = 'UPDATE employee SET name = %s, email = %s, phone = %s, company = %s WHERE eid = %s'
             values = (name, email, phone, company, eid)
             self._cur.execute(sql, values)
+            self._save()
         except Exception as e:
             return e
 
@@ -58,6 +60,7 @@ class Employee(_Connection):
         try:
             sql = 'DELETE FROM employee WHERE eid = %s'
             self._cur.execute(sql, (eid,))
+            self._save()
         except Exception as e:
             return e
 
@@ -103,6 +106,3 @@ class Employee(_Connection):
         sql = 'SELECT * FROM employee'
         self._cur.execute(sql)
         return self._cur.fetchmany(size)
-
-if __name__ == '__main__':
-    print(help(Employee))

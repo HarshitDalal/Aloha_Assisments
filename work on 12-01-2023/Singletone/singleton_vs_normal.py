@@ -11,8 +11,6 @@ class AlohaSingleTon(object):
     def add_location(self, location):
         self.__location = location
 
-        # print(self__location)
-
     def add_capacity(self, capacity):
         self.__capacity = capacity
 

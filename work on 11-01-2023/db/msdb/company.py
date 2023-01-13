@@ -28,6 +28,7 @@ class Company(_Connection):
         sql = 'INSERT INTO company (name, type, location) VALUES (%s, %s, %s)'
         values = (name, ctype, location)
         self._cur.execute(sql, values)
+        self._save()
 
     def modify(self, cid, name, ctype, location):
         """
@@ -43,6 +44,7 @@ class Company(_Connection):
             sql = 'UPDATE company SET name = %s, type = %s, location = %s WHERE cid = %s'
             values = (name, ctype, location, cid)
             self._cur.execute(sql, values)
+            self._save()
         except Exception as e:
             return e
 
@@ -56,6 +58,7 @@ class Company(_Connection):
         try:
             sql = 'DELETE FROM company WHERE eid = %s'
             self._cur.execute(sql, (cid,))
+            self._save()
         except Exception as e:
             return e
 

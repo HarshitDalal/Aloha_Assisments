@@ -20,7 +20,7 @@ class _Connection:
         except Exception as error:
             self.__notify(error)
 
-    def save(self):
+    def _save(self):
         """
         save the data in the tables
         """
