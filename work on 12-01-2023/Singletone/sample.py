@@ -17,11 +17,9 @@ class Config(object):
 	"""docstring for Config"""
 
 
-
 	_instance = None
 
 	log_level = logging.ERROR
-
 
 
 	def __new__(cls, *args, **kwargs):
@@ -30,10 +28,7 @@ class Config(object):
 
 			cls._instance = object.__new__(cls, *args, **kwargs)
 
-
-
 			cls._instance.app_name = 'aloha-ip-checker'
-
 
 
 			cls._instance.config = configparser.ConfigParser()

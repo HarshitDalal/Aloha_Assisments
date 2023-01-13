@@ -1,0 +1,36 @@
+[
+  {
+    "time": "08:59",
+    "am": "pm",
+    "ty": "post",
+    "data": {
+      "fullname": "Kapil Pandya",
+      "email": "kapilpandya1310@gmail.com",
+      "phone": "+919847392623",
+      "pos": "sd",
+      "dob": "2000-08-08",
+      "company": "Hexaview",
+      "address": "Puna"
+    }
+  },
+  {
+    "time": "09:00",
+    "am": "pm",
+    "ty": "put",
+    "data": {
+      "fullname": "Kapil Pandya",
+      "email": "kapilpandya1310@gmail.com",
+      "phone": "+919847392623",
+      "pos": "sales",
+      "dob": "2000-08-08",
+      "company": "Hexaview",
+      "address": "Puna"
+    }
+  },
+  {
+    "time": "09:01",
+    "am": "pm",
+    "ty": "get",
+    "data": null
+  }
+]

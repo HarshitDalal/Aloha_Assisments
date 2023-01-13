@@ -25,3 +25,5 @@
  # In Progress
 - file receive from front-end and store in back-end & database
 
+- singleton connect
+- given time use request, logger
