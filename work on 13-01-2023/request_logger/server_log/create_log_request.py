@@ -7,7 +7,7 @@ class Logger:
 
     def __init__(self, name):
         self._app_name = name
-        self.filepath = 'E:\Aloha Assisment\work on 13-02-2023\logs\mylog2.log'
+        self.filepath = 'E:\Aloha Assisment\work on 13-01-2023\logs\mylog2.log'
         self.__formate = '%(asctime)s  %(message)s'
 
         logging.basicConfig(format=self.__formate, level=logging.DEBUG,

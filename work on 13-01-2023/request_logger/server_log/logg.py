@@ -15,7 +15,7 @@ class Config(object):
 
             cls._instance._level = logging.getLevelName('DEBUG')
 
-            cls._instance._filepath = 'E:\Aloha Assisment\work on 13-02-2023\logs\mylog3.log'
+            cls._instance._filepath = 'E:\Aloha Assisment\work on 13-01-2023\logs\mylog3.log'
 
         return cls._instance
 
