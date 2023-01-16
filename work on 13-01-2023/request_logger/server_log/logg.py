@@ -8,7 +8,7 @@ class Config(object):
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
             cls._instance = object.__new__(cls, *args, **kwargs)
-            print(cls._instance)
+
             cls._instance._app_name = 'harshit'
 
             cls._instance._format = '%(asctime)s  %(message)s'

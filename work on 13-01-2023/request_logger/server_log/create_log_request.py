@@ -81,9 +81,9 @@ class Request(Logger):
 
 if __name__ == '__main__':
     r1 = Request('harshit')
-    with open('data.json') as f:
-        data = json.loads(f.read())[0]
-        r1.req(time=data['time'], am=data['am'], ty=data['ty'], data=data['data'])
-    # time, am, ty = input('time, am/pm, get/post/put \n>>> ').split(',')
-    # data = input('key: value pair or None \n>>> ').split(',')
-    # r1.req(time=time, am=am, ty=ty, data=data)
+    # with open('data.json') as f:
+    #     data = json.loads(f.read())[0]
+    #     r1.req(time=data['time'], am=data['am'], ty=data['ty'], data=data['data'])
+    time, am, ty = input('time, am/pm, get/post/put \n>>> ').split(',')
+    data = input('key: value pair or None \n>>> ').split(',')
+    r1.req(time=time, am=am, ty=ty, data=data)
