@@ -69,5 +69,5 @@ class Utility:
 
 if __name__ == '__main__':
     c1 = Utility('harry')
-    c1.get_req(5, 34, 'pm')
+    c1.get_req(2, 23, 'pm')
     # c1.post_req()

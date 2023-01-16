@@ -10,12 +10,16 @@ class Logger:
         self.filepath = 'E:\Aloha Assisment\work on 13-02-2023\logs\mylog2.log'
         self.__formate = '%(asctime)s  %(message)s'
 
-        logging.basicConfig(filename=self.filepath, format=self.__formate, level=logging.DEBUG)
+        logging.basicConfig(format=self.__formate, level=logging.DEBUG,
+                            handlers=[
+                                logging.FileHandler(self.filepath),
+                                logging.StreamHandler()
+                            ])
 
         self._config = logging.getLogger(self._app_name)
 
         self._config.warning(f'Statring log for {self._app_name} \n' + '-' * 130)
-        self.__start_time = datetime.utcnow()
+        self.__start_time = datetime.now()
 
     def __del__(self):
         end_time = datetime.now()
@@ -43,7 +47,7 @@ class Request(Logger):
                     else:
                         self._config.error(f'[Error] {req.status_code}')
                 except Exception as e:
-                    self._config.error(f'[POST] {req.url} faced {e}')
+                    self._config.error(f'[Error] faced {e}')
             else:
                 req = requests.request(ty, url=self._url)
         else:
@@ -51,7 +55,7 @@ class Request(Logger):
 
     def __check(self, time, am):
         hour, minuts = map(int, time.split(':'))
-        if am == 'pm':
+        if am == 'pm' and hour < 12:
             hour += 12
         time = datetime.strptime(f'{hour}:{minuts}', "%H:%M")
         time2 = datetime.strptime(f'{datetime.now().hour}:{datetime.now().minute}', "%H:%M")
@@ -62,6 +66,7 @@ class Request(Logger):
             return False
         else:
             h, m, s = str(diff).split(':')
+
             self._config.warning(
                 f'{self._app_name} are wait for {h} hours : {m} minutes : {s} seconds time for start operation')
             while True:
@@ -71,12 +76,14 @@ class Request(Logger):
 
     def __del__(self):
         self._config.warning(f'{self._app_name} are going to logout!\n' + '-' * 130)
+        super().__del__()
 
 
 if __name__ == '__main__':
     r1 = Request('harshit')
     with open('data.json') as f:
-        datas = json.loads(f.read())
-
-    for data in datas:
+        data = json.loads(f.read())[0]
         r1.req(time=data['time'], am=data['am'], ty=data['ty'], data=data['data'])
+    # time, am, ty = input('time, am/pm, get/post/put \n>>> ').split(',')
+    # data = input('key: value pair or None \n>>> ').split(',')
+    # r1.req(time=time, am=am, ty=ty, data=data)
