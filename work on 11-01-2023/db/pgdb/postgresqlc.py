@@ -1,4 +1,4 @@
-import psycopg2 as pgc
+import psycopg2_binary as pgc
 
 
 class _Connection:

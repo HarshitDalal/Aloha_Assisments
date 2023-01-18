@@ -1,8 +1,10 @@
 import pandas as pd
 
+
+
 if __name__ == '__main__':
     data = pd.read_csv('../Files/titanic.csv')
-    # print(data.to_string())
+    print(data.to_string())
     # print(data.head(20).to_string())
     # print(data.describe().to_string())
     # print(data.mean(numeric_only=True))

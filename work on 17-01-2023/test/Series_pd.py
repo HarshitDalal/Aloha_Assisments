@@ -15,5 +15,4 @@ if __name__ == '__main__':
     # print(data.dtype)
     # print(data.size)
     # print(data.empty)
-    # print(data.isnull)
     # print(data.ndim)
