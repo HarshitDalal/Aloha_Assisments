@@ -15,13 +15,7 @@ class WorkOnEmployee:
 
     @staticmethod
     def __verify(df1):
-        # emails = ['verified' for em in df1['email'] if em != np.nan else 'not_verified']
-        emails = []
-        for em in df1['email']:
-            if em is np.nan:
-                emails.append('not_verified')
-            else:
-                emails.append('verified')
+        emails = ['verified' if em != np.nan else 'not_verified' for em in df1['email']]
         return emails
 
     def __names_of_column(self, col):

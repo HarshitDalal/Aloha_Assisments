@@ -20,11 +20,11 @@ class CarSales:
 
     def replaceNullToMedian(self, col):
         median_val = self.__car[col].median()
-        self.__car[col].fillnam(median_val, inplace=True)
+        self.__car[col].fillna(median_val, inplace=True)
 
     def replaceNullToMode(self, col):
         mode_val = self.__car[col].mode()[0]
-        self.__car[col].fillnam(mode_val, inplace=True)
+        self.__car[col].fillna(mode_val, inplace=True)
 
     def findNullValuesCol(self):
         values = self.__car.isnull().sum()
