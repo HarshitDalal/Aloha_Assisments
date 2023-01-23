@@ -8,7 +8,7 @@ class Connection:
         self.__db = 'erp'
         self.__user = 'postgres'
         self.__host = 'localhost'
-        self.__password = 'harshit'
+        self.__password = 'aloha@123'
 
         self._conn = psycopg2.connect(
             host=self.__host,

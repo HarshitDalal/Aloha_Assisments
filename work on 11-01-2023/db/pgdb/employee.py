@@ -9,11 +9,11 @@ class Employee(_Connection):
         _Connection (class): inherit form pgdb.postgres
     """
 
-    def __init__(self):
+    def __init__(self, db_name):
         """
         Call the base class constructor with database name as a parameter
         """
-        super().__init__('thunder')
+        super().__init__(db_name)
 
     def add(self, name, email, phone, company):
         """

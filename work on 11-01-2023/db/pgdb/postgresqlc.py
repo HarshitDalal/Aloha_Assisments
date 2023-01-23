@@ -1,4 +1,4 @@
-import psycopg2_binary as pgc
+import psycopg2 as pgc
 
 
 class _Connection:
@@ -7,7 +7,7 @@ class _Connection:
         self.__db = db
         self.__user = 'postgres'
         self.__host = 'localhost'
-        self.__password = 'harshit'
+        self.__password = 'aloha@123'
         try:
             self.__conn = pgc.connect(
                 host=self.__host,
@@ -17,6 +17,7 @@ class _Connection:
                 port="5432"
             )
             self._cur = self.__conn.cursor()
+            print('hello')
         except Exception as error:
             self.__notify(error)
 
